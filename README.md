@@ -43,7 +43,7 @@ Bem-vindo ao meu portfólio! Aqui você encontra uma seleção dos meus projetos
 
 ## Contato
 
-- [LinkedIn]((https://www.linkedin.com/in/romario-morais-26b504b4/))
+- [LinkedIn](https://www.linkedin.com/in/romario-morais-26b504b4/)
 - [GitHub](https://github.com/romariomorais01)
 
 
