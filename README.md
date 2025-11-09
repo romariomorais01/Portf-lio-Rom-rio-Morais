@@ -1,12 +1,18 @@
+## Portfólio de Romário Morais
 
-# Portfólio de Romário Morais
+Bem-vindo ao meu portfólio!
+Aqui você encontra uma seleção dos meus projetos desenvolvidos com foco em lógica de programação, automações, aplicações web e sistemas orientados a objetos. 
+Este espaço reflete minha evolução como profissional de TI e meu compromisso com o aprendizado contínuo.
 
-Bem-vindo ao meu portfólio! Aqui você encontra uma seleção dos meus projetos desenvolvidos com foco em lógica de programação, automações, aplicações web e sistemas orientados a objetos. Este espaço reflete minha evolução como profissional de TI e meu compromisso com o aprendizado contínuo.
 
-##  Tecnologias utilizadas
-- **Python**: automações, manipulação de arquivos, lógica condicional
-- **Java**: programação orientada a objetos, aplicações de console
-- **PHP, HTML, CSS, JavaScript**: desenvolvimento web básico e dinâmico
+## Tecnologias Utilizadas
+
+- **Python**: automações, manipulação de arquivos, lógica condicional  
+- **Java**: programação orientada a objetos, aplicações de console  
+- **PHP, HTML, CSS, JavaScript**: desenvolvimento web básico e dinâmico  
+- **React, Vite, TailwindCSS**: aplicações modernas e responsivas  
+- **Go (Golang), Gin, GORM**: APIs REST robustas e performáticas  
+
 
 ## Projetos em Python
 
@@ -23,6 +29,7 @@ Bem-vindo ao meu portfólio! Aqui você encontra uma seleção dos meus projetos
   **Como executar:** clone o repositório e execute com `python poligonos.py`.
 
 
+
 ## Projetos em Java
 
 - [Identificador de Gadgets](https://github.com/romariomorais01/Identificando-Gadget-em-java)  
@@ -33,18 +40,28 @@ Bem-vindo ao meu portfólio! Aqui você encontra uma seleção dos meus projetos
   Calcula salário líquido com base em descontos e horas trabalhadas.  
   **Como executar:** compile com `javac` e execute com `java Calculadora`.
 
-
-## Projetos Web (PHP, HTML, CSS, JS)
+##  Projetos Web (PHP, HTML, CSS, JS)
 
 - [Páginas Web](https://github.com/romariomorais01/Projetos-de-Paginas)  
   Conjunto de páginas desenvolvidas com PHP, HTML, CSS e JavaScript.  
   **Como executar:** hospede os arquivos em um servidor local (ex: XAMPP) e acesse via navegador.
 
 
-## Contato
+## Projeto Fullstack
 
-- [LinkedIn](https://www.linkedin.com/in/romario-morais-26b504b4/)
-- [GitHub](https://github.com/romariomorais01)
+- [Desafio Kanban Fullstack](https://github.com/romariomorais01/Desafio-Kanban-Fullstack)  
+  Sistema Kanban com frontend em React e backend em Go. Permite criar, editar, excluir e visualizar tarefas organizadas por status.  
+  **Tecnologias:** React, Vite, TailwindCSS, Go, Gin, GORM  
+  **Como executar:**  
+  - Frontend: `cd src && npm install && npm run dev`  
+  - Backend: `cd backend && go run main.go`
+
+
+## 📬 Contato
+
+- [LinkedIn](https://www.linkedin.com/in/romariomorais30/)  
+- [GitHub](https://github.com/romariomorais01)  
+- E-mail: romariomorais5@gmail.com
 
 
 Sinta-se à vontade para explorar os projetos, acompanhar minha evolução ou entrar em contato!
