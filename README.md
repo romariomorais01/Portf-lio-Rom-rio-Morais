@@ -40,8 +40,8 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   Calcula salário líquido com base em descontos e horas trabalhadas.  
   **Como executar:** compile com `javac` e execute com `java Calculadora`.
 
-- [Cálculo do valor pago de Energia] (https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java).
-- Calcula o valor pago mensalmente em energia, de acordo com o consumo de cada equipamento.
+- [Cálculo do valor pago de Energia](https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java).
+  Calcula o valor pago mensalmente em energia, de acordo com o consumo de cada equipamento.
   **Como executar:** compile com 'javac' e execute com 'java consumoenergia'.
 
 ##  Projetos Web (PHP, HTML, CSS, JS)
