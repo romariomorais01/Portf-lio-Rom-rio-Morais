@@ -7,11 +7,11 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
 
 ## Tecnologias Utilizadas
 
-- **Python**: automações, manipulação de arquivos, lógica condicional  
-- **Java**: programação orientada a objetos, aplicações de console  
-- **PHP, HTML, CSS, JavaScript**: desenvolvimento web básico e dinâmico  
-- **React, Vite, TailwindCSS**: aplicações modernas e responsivas  
-- **Go (Golang), Gin, GORM**: APIs REST robustas e performáticas  
+- **Python**: automações, manipulação de arquivos, lógica condicional;  
+- **Java**: programação orientada a objetos, aplicações de console;
+- **PHP, HTML, CSS, JavaScript**: desenvolvimento web básico e dinâmico;  
+- **React, Vite, TailwindCSS**: aplicações modernas e responsivas;  
+- **Go (Golang), Gin, GORM**: APIs REST robustas e performáticas;  
 
 
 ## Projetos em Python
@@ -39,6 +39,10 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
 - [Calculadora de Salário](https://github.com/romariomorais01/Calculadora-de-salario-em-java)  
   Calcula salário líquido com base em descontos e horas trabalhadas.  
   **Como executar:** compile com `javac` e execute com `java Calculadora`.
+
+- [Cálculo do valor pago de Energia] (https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java).
+- Calcula o valor pago mensalmente em energia, de acordo com o consumo de cada equipamento.
+  **Como executar:** compile com 'javac' e execute com 'java consumoenergia'.
 
 ##  Projetos Web (PHP, HTML, CSS, JS)
 
