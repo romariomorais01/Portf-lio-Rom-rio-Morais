@@ -22,7 +22,7 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
 
 - [Gerador de Senhas](https://github.com/romariomorais01/geradordesenha.git)
   Criador de senhas para redes sociais e/ou sites via terminal.
-  **Como executar:** clone o repostório e execute com 'python geradordesenha.py'.
+  **Como executar:** clone o repostório e execute com `python geradordesenha.py`.
   
 - [Organizador de Tarefas](https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1)  
   Gerenciador de tarefas simples com armazenamento em arquivo `.txt`.  
