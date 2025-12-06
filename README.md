@@ -1,18 +1,16 @@
 ## Portfólio de Romário Morais
 
-Bem-vindo ao meu portfólio!
-Aqui você encontra uma seleção dos meus projetos desenvolvidos com foco em lógica de programação, automações, aplicações web e sistemas orientados a objetos. 
+Bem-vindo ao meu portfólio!  
+Aqui você encontra uma seleção dos meus projetos desenvolvidos com foco em lógica de programação, automações, aplicações web e sistemas orientados a objetos.  
 Este espaço reflete minha evolução como profissional de TI e meu compromisso com o aprendizado contínuo.
-
 
 ## Tecnologias Utilizadas
 
 - **Python**: automações, manipulação de arquivos, lógica condicional;  
-- **Java**: programação orientada a objetos, aplicações de console;
+- **Java**: programação orientada a objetos, aplicações de console;  
 - **PHP, HTML, CSS, JavaScript**: desenvolvimento web básico e dinâmico;  
 - **React, Vite, TailwindCSS**: aplicações modernas e responsivas;  
 - **Go (Golang), Gin, GORM**: APIs REST robustas e performáticas;  
-
 
 ## Projetos em Python
 
@@ -20,10 +18,10 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   Sistema para cadastrar alunos e turmas, com consulta de dados via terminal.  
   **Como executar:** clone o repositório e execute com `python cadastro.py`.
 
-- [Gerador de Senhas](https://github.com/romariomorais01/geradordesenha.git)
-  Criador de senhas para redes sociais e/ou sites via terminal.
-  **Como executar:** clone o repostório e execute com `python geradordesenha.py`.
-  
+- [Gerador de Senhas](https://github.com/romariomorais01/geradordesenha.git)  
+  Criador de senhas para redes sociais e/ou sites via terminal.  
+  **Como executar:** clone o repositório e execute com `python geradordesenha.py`.
+
 - [Organizador de Tarefas](https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1)  
   Gerenciador de tarefas simples com armazenamento em arquivo `.txt`.  
   **Como executar:** clone o repositório e execute com `python organizador.py`.
@@ -32,7 +30,9 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   Script que identifica o tipo de polígono com base no número de lados.  
   **Como executar:** clone o repositório e execute com `python poligonos.py`.
 
-
+- [Chatbot em Python](https://github.com/romariomorais01/chatbot)  
+  Chatbot simples que responde a cumprimentos e comandos básicos, incluindo saudação inicial baseada no horário do dia.  
+  **Como executar:** clone o repositório e execute com `python chatbot.py`.
 
 ## Projetos em Java
 
@@ -44,16 +44,15 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   Calcula salário líquido com base em descontos e horas trabalhadas.  
   **Como executar:** compile com `javac` e execute com `java Calculadora`.
 
-- [Cálculo do valor pago de Energia](https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java).     
-  Calcula o valor pago mensalmente em energia, de acordo com o consumo de cada equipamento.      
-  **Como executar:** compile com 'javac' e execute com 'java consumoenergia'.
+- [Cálculo do valor pago de Energia](https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java)  
+  Calcula o valor pago mensalmente em energia, de acordo com o consumo de cada equipamento.  
+  **Como executar:** compile com `javac` e execute com `java consumoenergia`.
 
-##  Projetos Web (PHP, HTML, CSS, JS)
+## Projetos Web (PHP, HTML, CSS, JS)
 
 - [Páginas Web](https://github.com/romariomorais01/Projetos-de-Paginas)  
   Conjunto de páginas desenvolvidas com PHP, HTML, CSS e JavaScript.  
   **Como executar:** hospede os arquivos em um servidor local (ex: XAMPP) e acesse via navegador.
-
 
 ## Projeto Fullstack
 
@@ -64,12 +63,10 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   - Frontend: `cd src && npm install && npm run dev`  
   - Backend: `cd backend && go run main.go`
 
-
 ## 📬 Contato
 
 - [LinkedIn](https://www.linkedin.com/in/romariomorais30/)  
 - [GitHub](https://github.com/romariomorais01)  
-- E-mail: romariomorais5@gmail.com
-
+- E-mail: romariomorais5@gmail.com  
 
 Sinta-se à vontade para explorar os projetos, acompanhar minha evolução ou entrar em contato!
