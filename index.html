@@ -1,20 +1,33 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Portfólio - Romário Morais</title>
   <style>
+    /* Estilo global */
+    :root{
+      --primary:#2c3e50;
+      --accent:#1abc9c;
+      --bg:#f5f7fa;
+      --card:#ffffff;
+      --footer-bg:#2c3e50;
+      --footer-text:#ffffff;
+    }
+
+    *{box-sizing:border-box}
+
     body {
       margin: 0;
       font-family: "Segoe UI", Arial, sans-serif;
-      background-color: #f5f7fa;
+      background-color: var(--bg);
       color: #333;
       line-height: 1.6;
     }
 
     h1, h2, h3 {
-      color: #2c3e50;
+      color: var(--primary);
       margin-bottom: 0.5rem;
     }
 
@@ -23,25 +36,27 @@
       margin: 0.3rem 0;
     }
 
+    /* Hero Section */
     .hero {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       text-align: center;
-      min-height: 100vh;
+      min-height: 80vh;
       background: linear-gradient(135deg, #e8ecf1, #ffffff);
-      padding: 2rem;
+      padding: 2rem 1rem;
     }
 
     .hero h1 {
       font-size: 2.4rem;
-      margin-bottom: 1rem;
+      margin: 0.6rem 0;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
+      font-size: 1.05rem;
+      max-width: 680px;
+      margin: 0.25rem 0;
     }
 
     /* Foto de perfil */
@@ -51,91 +66,125 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 1rem;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-      transition: transform 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      border: 4px solid rgba(255,255,255,0.6);
+      background-color: #fff;
     }
 
     .profile-pic:hover {
-      transform: scale(1.05);
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.22);
     }
 
+    /* Seções */
     section {
-      padding: 4rem 2rem;
+      padding: 4rem 1.25rem;
       text-align: center;
-      max-width: 900px;
-      margin: auto;
+      max-width: 980px;
+      margin: 0 auto;
     }
 
     section h2 {
       font-size: 2rem;
       margin-bottom: 1.5rem;
-      border-bottom: 2px solid #2c3e50;
+      border-bottom: 2px solid var(--primary);
       display: inline-block;
       padding-bottom: 0.3rem;
     }
 
+    /* Projetos */
     .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
+      margin-top: 1.25rem;
     }
 
     .project-card {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
+      background: var(--card);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
+      cursor: default;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      transform: translateY(-6px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.10);
     }
 
     .project-card:active {
-      transform: scale(0.97);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transform: scale(0.99);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
     }
 
     .project-card h3 {
-      margin-bottom: 0.5rem;
+      margin: 0 0 0.5rem 0;
+      width: 100%;
+    }
+
+    .project-card p {
+      margin: 0.25rem 0;
+      color: #555;
     }
 
     .project-card a {
       text-decoration: none;
-      color: #2c3e50;
-      transition: color 0.3s;
+      color: var(--primary);
+      transition: color 0.22s;
+      word-break: break-word;
     }
 
     .project-card a:hover {
-      color: #1abc9c;
+      color: var(--accent);
     }
 
+    /* Footer / Contato */
     footer {
-      background: #2c3e50;
-      color: #fff; /* texto em branco */
+      background: var(--footer-bg);
+      color: var(--footer-text);
       text-align: center;
-      padding: 2rem;
+      padding: 2.25rem 1rem;
     }
 
     footer h2 {
-      margin-bottom: 1rem;
-      color: #fff;
+      margin: 0 0 0.75rem 0;
+      color: var(--footer-text);
     }
 
     footer p {
-      margin: 0.3rem 0;
-      color: #fff; /* garante que o texto fique branco */
+      margin: 0.25rem 0;
+      color: var(--footer-text);
+    }
+
+    footer a {
+      color: var(--footer-text);
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width:480px){
+      .profile-pic{width:120px;height:120px}
+      .hero h1{font-size:1.8rem}
+      section{padding:3rem 1rem}
     }
   </style>
 </head>
-
 <body>
   <!-- Hero Section -->
   <header class="hero">
-    <img src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_0032.JPG" alt="Foto de Romário Morais" class="profile-pic">
+    <!-- imagem usando link raw do GitHub -->
+    <img
+      src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_0032.JPG"
+      alt="Foto de Romário Morais"
+      class="profile-pic"
+      loading="lazy"
+    />
     <h1>Olá, eu sou Romário Morais</h1>
     <p>Desenvolvedor iniciante apaixonado por tecnologia.</p>
     <p>Graduando em Sistemas de Informações - UNIFATECIE</p>
@@ -148,7 +197,7 @@
     <p>Bacharelando em Sistemas de Informação pela UNIFATECIE.</p>
     <p>Pós-graduado em Educação no Ensino Superior e EJA (FAVENI) e em Geografia: Ensino e Pesquisa no Semiárido (UFCG).</p>
     <p>Graduado em Geografia pela Universidade Federal de Campina Grande (UFCG - CFP).</p>
-    <p>Atualmente leciona Geografia para turmas do Ensino Fundamental II no município de São João do Rio do Peixe - PB.</p>
+    <p>Atualmente leciono Geografia para turmas do Ensino Fundamental II no município de São João do Rio do Peixe - PB.</p>
     <p>Experiências: Tutor bolsista (UFU), Professor formador na EJA (2019-2023), Professor bolsista no curso FIC Auxiliar em Geoprocessamento (IFPB, 2020).</p>
   </section>
 
@@ -157,63 +206,63 @@
     <h2>Projetos</h2>
     <div class="projects">
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank">Cadastro de Alunos (Python)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank" rel="noopener noreferrer">Cadastro de Alunos (Python)</a></h3>
         <p>Sistema para cadastrar alunos e turmas, com consulta de dados via terminal.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/geradordesenha" target="_blank">Gerador de Senhas (Python)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/geradordesenha" target="_blank" rel="noopener noreferrer">Gerador de Senhas (Python)</a></h3>
         <p>Gera senhas seguras e aleatórias.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1" target="_blank">Organizador de Tarefas (Python)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1" target="_blank" rel="noopener noreferrer">Organizador de Tarefas (Python)</a></h3>
         <p>Gerenciador simples com armazenamento em arquivo .txt.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Identificando-poligonos-pelo-numero-de-lados" target="_blank">Identificador de Polígonos (Python)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Identificando-poligonos-pelo-numero-de-lados" target="_blank" rel="noopener noreferrer">Identificador de Polígonos (Python)</a></h3>
         <p>Identifica o tipo de polígono com base no número de lados.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/chatbot-simples" target="_blank">Chatbot (Python)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/chatbot-simples" target="_blank" rel="noopener noreferrer">Chatbot (Python)</a></h3>
         <p>Responde cumprimentos e comandos básicos, com saudação inicial baseada no horário.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Identificando-Gadget-em-java" target="_blank">Identificador de Gadgets (Java)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Identificando-Gadget-em-java" target="_blank" rel="noopener noreferrer">Identificador de Gadgets (Java)</a></h3>
         <p>Classifica dispositivos com base em características fornecidas.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Calculadora-de-salario-em-java" target="_blank">Calculadora de Salário (Java)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Calculadora-de-salario-em-java" target="_blank" rel="noopener noreferrer">Calculadora de Salário (Java)</a></h3>
         <p>Calcula salário líquido com base em descontos e horas trabalhadas.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java" target="_blank">Cálculo de Energia (Java)</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java" target="_blank" rel="noopener noreferrer">Cálculo de Energia (Java)</a></h3>
         <p>Calcula o valor da energia elétrica com base no consumo.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank">Projetos Web</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank" rel="noopener noreferrer">Projetos Web</a></h3>
         <p>Páginas desenvolvidas com PHP, HTML, CSS e JavaScript.</p>
       </div>
 
       <div class="project-card">
-        <h3><a href="https://github.com/romariomorais01/Kanban-Fullstack" target="_blank">Kanban Fullstack</a></h3>
+        <h3><a href="https://github.com/romariomorais01/Kanban-Fullstack" target="_blank" rel="noopener noreferrer">Kanban Fullstack</a></h3>
         <p>Sistema Kanban com React e Go. Permite criar, editar, excluir e visualizar tarefas.</p>
-<p>Tecnologias: React, Vite, TailwindCSS, Go, Gin, GORM.</p>
+        <p>Tecnologias: React, Vite, TailwindCSS, Go, Gin, GORM.</p>
       </div>
     </div>
   </section>
 
-  <!-- Contato -->
-  <footer class="contact">
+  <!-- Contato / Rodapé -->
+  <footer>
     <h2>Contato</h2>
-    <p>Email: romariomorais5@gmail.com</p>
-    <p>LinkedIn: linkedin.com/in/romariomorais30</p>
+    <p>Email: <a href="mailto:romariomorais5@gmail.com" rel="noopener noreferrer">romariomorais5@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/romariomorais30" target="_blank" rel="noopener noreferrer">linkedin.com/in/romariomorais30</a></p>
   </footer>
 </body>
 </html>
