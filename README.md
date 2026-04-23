@@ -54,6 +54,10 @@ Este espaço reflete minha evolução como profissional de TI e meu compromisso 
   Conjunto de páginas desenvolvidas com PHP, HTML, CSS e JavaScript.  
   **Como executar:** hospede os arquivos em um servidor local (ex: XAMPP) e acesse via navegador.
 
+- [Captura de Leads](https://github.com/romariomorais01/Captura-de-Leads-simples)
+  Página simples de captura de leads desenvolvida em HTML, CSS e JavaScript. O formulário coleta nome, e-mail e telefone e envia os dados diretamente para um número de WhatsApp. Projeto criado para portfólio, com design moderno, responsivo e interativo.
+  **Tecnologias:** Html, CSS e Javascript.
+
 ## Projeto Fullstack
 
 - [Desafio Kanban Fullstack](https://github.com/romariomorais01/Desafio-Kanban-Fullstack)  
