@@ -3,196 +3,496 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfólio - Romário Morais</title>
+  <title>Romário Morais | Dev Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --primary:#2c3e50;
-      --accent:#1abc9c;
-      --bg:#f5f7fa;
-      --card:#ffffff;
+      --bg:#050505;
+      --card:#111111;
+      --neon:#39ff14;
+      --purple:#a855f7;
+      --text:#ffffff;
+      --gray:#b3b3b3;
     }
 
-    *{box-sizing:border-box}
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: var(--bg);
-      color: #333;
+    body{
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x:hidden;
+    }
+
+    body::before{
+      content:'';
+      position:fixed;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(57,255,20,0.15), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(168,85,247,0.15), transparent 30%);
+      z-index:-1;
+    }
+
+    /* NAVBAR */
+    nav{
+      width:100%;
+      padding:1.5rem 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.4);
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      z-index:1000;
+    }
+
+    .logo{
+      font-family:'Orbitron', sans-serif;
+      font-size:1.4rem;
+      color:var(--neon);
+      font-weight:900;
+      letter-spacing:2px;
+      text-shadow:0 0 12px var(--neon);
+    }
+
+    .menu{
+      display:flex;
+      gap:2rem;
+    }
+
+    .menu a{
+      color:#d4d4d4;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:0.95rem;
+    }
+
+    .menu a:hover{
+      color:var(--neon);
     }
 
     /* HERO */
-    .hero {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: linear-gradient(135deg, #e8ecf1, #ffffff);
+    .hero{
+      min-height:100vh;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      align-items:center;
+      gap:4rem;
+      padding:4rem 8%;
     }
 
-    .profile-pic {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      margin-bottom: 1rem;
+    .hero-text small{
+      color:var(--neon);
+      letter-spacing:4px;
+      text-transform:uppercase;
+      font-weight:600;
     }
 
-    section {
-      padding: 3rem 1rem;
-      max-width: 1000px;
-      margin: auto;
-      text-align: center;
+    .hero-text h1{
+      font-family:'Orbitron', sans-serif;
+      font-size:4rem;
+      line-height:1.1;
+      margin:1rem 0;
     }
 
-    /* GRID */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+    .hero-text h1 span{
+      background:linear-gradient(90deg,var(--neon),var(--purple));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
     }
 
-    /* CARD CLICÁVEL */
-    .project-card {
-      background: var(--card);
-      padding: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      transition: 0.3s;
-      text-align: left;
-      text-decoration: none;
-      color: inherit;
-      display: block;
+    .hero-text p{
+      color:var(--gray);
+      line-height:1.8;
+      max-width:550px;
+      margin-bottom:2rem;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    .buttons{
+      display:flex;
+      gap:1rem;
+      flex-wrap:wrap;
     }
 
-    .featured {
-      border: 2px solid var(--accent);
+    .btn{
+      padding:14px 28px;
+      border-radius:14px;
+      border:none;
+      cursor:pointer;
+      font-weight:700;
+      transition:0.3s;
+      text-decoration:none;
     }
 
-    /* BADGE */
-    .tech {
-      display: inline-block;
-      background: #e8f8f5;
-      color: #1abc9c;
-      padding: 4px 8px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      margin: 4px 4px 0 0;
+    .btn-primary{
+      background:var(--neon);
+      color:#000;
+      box-shadow:0 0 25px rgba(57,255,20,0.5);
     }
 
-    footer {
-      background: #2c3e50;
-      color: white;
-      text-align: center;
-      padding: 2rem;
+    .btn-primary:hover{
+      transform:translateY(-4px);
     }
 
-    footer a {
-      color: white;
+    .btn-secondary{
+      border:1px solid var(--purple);
+      color:#fff;
+      background:transparent;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(168,85,247,0.15);
+    }
+
+    /* PROFILE CARD */
+    .profile-card{
+      position:relative;
+    }
+
+    .profile-glow{
+      position:absolute;
+      inset:-5px;
+      border-radius:30px;
+      background:linear-gradient(135deg,var(--neon),var(--purple));
+      filter:blur(30px);
+      opacity:0.4;
+    }
+
+    .profile-content{
+      position:relative;
+      background:rgba(17,17,17,0.9);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:2rem;
+      border-radius:30px;
+      backdrop-filter:blur(20px);
+    }
+
+    .profile-pic{
+      width:180px;
+      height:180px;
+      border-radius:50%;
+      object-fit:cover;
+      border:3px solid var(--neon);
+      box-shadow:0 0 30px rgba(57,255,20,0.5);
+      display:block;
+      margin:0 auto 2rem;
+    }
+
+    .status{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:1.5rem;
+      font-family:'Orbitron', sans-serif;
+      color:var(--neon);
+    }
+
+    .info-item{
+      display:flex;
+      justify-content:space-between;
+      padding:1rem 0;
+      border-bottom:1px solid rgba(255,255,255,0.05);
+      color:#d4d4d4;
+    }
+
+    /* SECTION */
+    section{
+      padding:5rem 8%;
+    }
+
+    .section-title{
+      margin-bottom:3rem;
+    }
+
+    .section-title small{
+      color:var(--neon);
+      letter-spacing:4px;
+      text-transform:uppercase;
+    }
+
+    .section-title h2{
+      font-size:3rem;
+      margin-top:0.5rem;
+      font-family:'Orbitron', sans-serif;
+    }
+
+    /* PROJECTS */
+    .projects{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:2rem;
+    }
+
+    .project-card{
+      position:relative;
+      background:rgba(17,17,17,0.8);
+      border:1px solid rgba(255,255,255,0.08);
+      padding:2rem;
+      border-radius:24px;
+      transition:0.35s;
+      text-decoration:none;
+      color:#fff;
+      overflow:hidden;
+    }
+
+    .project-card::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:linear-gradient(135deg, rgba(57,255,20,0.08), rgba(168,85,247,0.08));
+      opacity:0;
+      transition:0.4s;
+    }
+
+    .project-card:hover::before{
+      opacity:1;
+    }
+
+    .project-card:hover{
+      transform:translateY(-8px);
+      border-color:rgba(57,255,20,0.4);
+      box-shadow:0 0 25px rgba(57,255,20,0.15);
+    }
+
+    .project-number{
+      width:55px;
+      height:55px;
+      border-radius:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      border:1px solid rgba(57,255,20,0.4);
+      color:var(--neon);
+      font-family:'Orbitron', sans-serif;
+      margin-bottom:1.5rem;
+      box-shadow:0 0 20px rgba(57,255,20,0.2);
+    }
+
+    .project-card h3{
+      margin-bottom:1rem;
+      font-size:1.5rem;
+    }
+
+    .project-card p{
+      color:#b3b3b3;
+      line-height:1.7;
+      margin-bottom:1.5rem;
+    }
+
+    .tech{
+      display:inline-block;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:0.75rem;
+      background:rgba(168,85,247,0.15);
+      border:1px solid rgba(168,85,247,0.3);
+      margin:5px 5px 0 0;
+    }
+
+    /* CONTACT */
+    footer{
+      text-align:center;
+      padding:5rem 8%;
+      border-top:1px solid rgba(255,255,255,0.08);
+    }
+
+    footer h2{
+      font-size:3rem;
+      margin-bottom:1rem;
+      font-family:'Orbitron', sans-serif;
+    }
+
+    footer p{
+      color:#b3b3b3;
+      margin-bottom:1rem;
+    }
+
+    footer a{
+      color:var(--neon);
+      text-decoration:none;
+    }
+
+    @media(max-width:768px){
+      .hero-text h1{
+        font-size:2.8rem;
+      }
+
+      .menu{
+        display:none;
+      }
+
+      .section-title h2{
+        font-size:2rem;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <img src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_0032.JPG" class="profile-pic">
-  <h1>Romário Morais</h1>
-  <p>Bacharelando em Sistemas de Informação - UNIFATECIE;</p>
-  <p>Desenvolvedor em transição para a área de tecnologia</p>
-</header>
+  <nav>
+    <div class="logo">ROMÁRIO.dev</div>
 
-<section>
-  <h2>Projetos</h2>
+    <div class="menu">
+      <a href="#home">Home</a>
+      <a href="#projects">Projetos</a>
+      <a href="#contact">Contato</a>
+    </div>
+  </nav>
 
-  <div class="projects">
+  <section class="hero" id="home">
 
-    <!-- PROJETO PRINCIPAL -->
-    <a class="project-card featured" href="https://github.com/romariomorais01/Captura-de-Leads-simples" target="_blank">
-      <h3>Sistema de Captura de Leads</h3>
-      <p>Formulário integrado ao WhatsApp para envio automático de mensagens.</p>
-      <span class="tech">HTML</span>
-      <span class="tech">CSS</span>
-      <span class="tech">JavaScript</span>
-    </a>
+    <div class="hero-text">
+      <small>Desenvolvedor Front-End</small>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Desafio-Kanban-Fullstack" target="_blank">
-      <h3>Kanban Fullstack</h3>
-      <p>Gerenciador de tarefas completo.</p>
-      <span class="tech">React</span>
-      <span class="tech">Go</span>
-    </a>
+      <h1>
+        Criando <span>experiências digitais</span>
+      </h1>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank">
-      <h3>Cadastro de Alunos</h3>
-      <p>Cadastro e consulta via terminal.</p>
-      <span class="tech">Python</span>
-    </a>
+      <p>
+        Bacharelando em Sistemas de Informação pela UNIFATECIE.
+        Desenvolvedor em transição para a área de tecnologia,
+        focado em aplicações web modernas, interativas e funcionais.
+      </p>
 
-    <a class="project-card" href="https://github.com/romariomorais01/geradordesenha" target="_blank">
-      <h3>Gerador de Senhas</h3>
-      <p>Geração de senhas seguras.</p>
-      <span class="tech">Python</span>
-    </a>
+      <div class="buttons">
+        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1" target="_blank">
-      <h3>Organizador de Tarefas</h3>
-      <p>Gerenciador simples com arquivo.</p>
-      <span class="tech">Python</span>
-    </a>
+        <a href="https://linkedin.com/in/romariomorais30" target="_blank" class="btn btn-secondary">
+          LinkedIn
+        </a>
+      </div>
+    </div>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Identificando-poligonos-pelo-numero-de-lados" target="_blank">
-      <h3>Identificador de Polígonos</h3>
-      <p>Classificação por número de lados.</p>
-      <span class="tech">Python</span>
-    </a>
+    <div class="profile-card">
+      <div class="profile-glow"></div>
 
-    <a class="project-card" href="https://github.com/romariomorais01/chatbot-simples" target="_blank">
-      <h3>Chatbot</h3>
-      <p>Respostas automáticas básicas.</p>
-      <span class="tech">Python</span>
-    </a>
+      <div class="profile-content">
 
-    <a class="project-card" href="https://github.com/romariomorais01/Identificando-Gadget-em-java" target="_blank">
-      <h3>Identificador de Gadgets</h3>
-      <p>Classificação de dispositivos.</p>
-      <span class="tech">Java</span>
-    </a>
+        <div class="status">
+          <span>STATUS</span>
+          <span>ONLINE</span>
+        </div>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Calculadora-de-salario-em-java" target="_blank">
-      <h3>Calculadora de Salário</h3>
-      <p>Cálculo de salário líquido.</p>
-      <span class="tech">Java</span>
-    </a>
+        <img src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_0032.JPG" class="profile-pic">
 
-    <a class="project-card" href="https://github.com/romariomorais01/Calculo-de-consumo-de-energia-em-java" target="_blank">
-      <h3>Cálculo de Energia</h3>
-      <p>Consumo de energia elétrica.</p>
-      <span class="tech">Java</span>
-    </a>
+        <div class="info-item">
+          <span>Nome</span>
+          <strong>Romário Morais</strong>
+        </div>
 
-    <a class="project-card" href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank">
-      <h3>Projetos Web</h3>
-      <p>Páginas com HTML, CSS, JS e PHP.</p>
-      <span class="tech">HTML</span>
-      <span class="tech">CSS</span>
-      <span class="tech">JavaScript</span>
-      <span class="tech">PHP</span>
-    </a>
+        <div class="info-item">
+          <span>Foco</span>
+          <strong>Front-End</strong>
+        </div>
 
-  </div>
-</section>
+        <div class="info-item">
+          <span>Stack</span>
+          <strong>HTML • CSS • JS</strong>
+        </div>
 
-<footer>
-  <h2>Contato</h2>
-  <p>Email: <a href="mailto:romariomorais5@gmail.com">romariomorais5@gmail.com</a></p>
-  <p><a href="https://linkedin.com/in/romariomorais30" target="_blank">LinkedIn</a></p>
-</footer>
+        <div class="info-item">
+          <span>Modo</span>
+          <strong style="color: var(--neon);">BUILDING</strong>
+        </div>
+
+      </div>
+    </div>
+
+  </section>
+
+  <section id="projects">
+
+    <div class="section-title">
+      <small>Portfólio</small>
+      <h2>Projetos em destaque</h2>
+    </div>
+
+    <div class="projects">
+
+      <a class="project-card" href="https://github.com/romariomorais01/Captura-de-Leads-simples" target="_blank">
+        <div class="project-number">01</div>
+        <h3>Sistema de Captura de Leads</h3>
+        <p>Formulário integrado ao WhatsApp para envio automático de mensagens.</p>
+        <span class="tech">HTML</span>
+        <span class="tech">CSS</span>
+        <span class="tech">JavaScript</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/romariomorais01/Desafio-Kanban-Fullstack" target="_blank">
+        <div class="project-number">02</div>
+        <h3>Kanban Fullstack</h3>
+        <p>Gerenciador de tarefas completo.</p>
+        <span class="tech">React</span>
+        <span class="tech">Go</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank">
+        <div class="project-number">03</div>
+        <h3>Cadastro de Alunos</h3>
+        <p>Cadastro e consulta via terminal.</p>
+        <span class="tech">Python</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/romariomorais01/geradordesenha" target="_blank">
+        <div class="project-number">04</div>
+        <h3>Gerador de Senhas</h3>
+        <p>Geração de senhas seguras.</p>
+        <span class="tech">Python</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/romariomorais01/chatbot-simples" target="_blank">
+        <div class="project-number">05</div>
+        <h3>Chatbot</h3>
+        <p>Respostas automáticas básicas.</p>
+        <span class="tech">Python</span>
+      </a>
+
+      <a class="project-card" href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank">
+        <div class="project-number">06</div>
+        <h3>Projetos Web</h3>
+        <p>Páginas desenvolvidas com HTML, CSS, JavaScript e PHP.</p>
+        <span class="tech">HTML</span>
+        <span class="tech">CSS</span>
+        <span class="tech">JavaScript</span>
+        <span class="tech">PHP</span>
+      </a>
+
+    </div>
+  </section>
+
+  <footer id="contact">
+    <h2>Vamos construir algo incrível.</h2>
+
+    <p>
+      Disponível para freelas, projetos e oportunidades.
+    </p>
+
+    <p>
+      Email:
+      <a href="mailto:romariomorais5@gmail.com">
+        romariomorais5@gmail.com
+      </a>
+    </p>
+
+    <p>
+      <a href="https://linkedin.com/in/romariomorais30" target="_blank">
+        LinkedIn
+      </a>
+    </p>
+  </footer>
 
 </body>
 </html>
