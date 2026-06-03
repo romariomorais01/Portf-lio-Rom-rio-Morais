@@ -1,499 +1,156 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Romário Morais | Dev Portfolio</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg:#050505;
-      --card:#111111;
-      --neon:#39ff14;
-      --purple:#a855f7;
-      --text:#ffffff;
-      --gray:#b3b3b3;
-    }
-
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      scroll-behavior:smooth;
-    }
-
-    body{
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      overflow-x:hidden;
-    }
-
-    body::before{
-      content:'';
-      position:fixed;
-      inset:0;
-      background:
-      radial-gradient(circle at top left, rgba(57,255,20,0.15), transparent 30%),
-      radial-gradient(circle at bottom right, rgba(168,85,247,0.15), transparent 30%);
-      z-index:-1;
-    }
-
-    /* NAVBAR */
-    nav{
-      width:100%;
-      padding:1.5rem 8%;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      position:sticky;
-      top:0;
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,0.4);
-      border-bottom:1px solid rgba(255,255,255,0.08);
-      z-index:1000;
-    }
-
-    .logo{
-      font-family:'Orbitron', sans-serif;
-      font-size:1.4rem;
-      color:var(--neon);
-      font-weight:900;
-      letter-spacing:2px;
-      text-shadow:0 0 12px var(--neon);
-    }
-
-    .menu{
-      display:flex;
-      gap:2rem;
-    }
-
-    .menu a{
-      color:#d4d4d4;
-      text-decoration:none;
-      transition:0.3s;
-      font-size:0.95rem;
-    }
-
-    .menu a:hover{
-      color:var(--neon);
-    }
-
-    /* HERO */
-    .hero{
-      min-height:100vh;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-      align-items:center;
-      gap:4rem;
-      padding:4rem 8%;
-    }
-
-    .hero-text small{
-      color:var(--neon);
-      letter-spacing:4px;
-      text-transform:uppercase;
-      font-weight:600;
-    }
-
-    .hero-text h1{
-      font-family:'Orbitron', sans-serif;
-      font-size:4rem;
-      line-height:1.1;
-      margin:1rem 0;
-    }
-
-    .hero-text h1 span{
-      background:linear-gradient(90deg,var(--neon),var(--purple));
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-    }
-
-    .hero-text p{
-      color:var(--gray);
-      line-height:1.8;
-      max-width:550px;
-      margin-bottom:2rem;
-    }
-
-    .buttons{
-      display:flex;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      padding:14px 28px;
-      border-radius:14px;
-      border:none;
-      cursor:pointer;
-      font-weight:700;
-      transition:0.3s;
-      text-decoration:none;
-    }
-
-    .btn-primary{
-      background:var(--neon);
-      color:#000;
-      box-shadow:0 0 25px rgba(57,255,20,0.5);
-    }
-
-    .btn-primary:hover{
-      transform:translateY(-4px);
-    }
-
-    .btn-secondary{
-      border:1px solid var(--purple);
-      color:#fff;
-      background:transparent;
-    }
-
-    .btn-secondary:hover{
-      background:rgba(168,85,247,0.15);
-    }
-
-    /* PROFILE CARD */
-    .profile-card{
-      position:relative;
-    }
-
-    .profile-glow{
-      position:absolute;
-      inset:-5px;
-      border-radius:30px;
-      background:linear-gradient(135deg,var(--neon),var(--purple));
-      filter:blur(30px);
-      opacity:0.4;
-    }
-
-    .profile-content{
-      position:relative;
-      background:rgba(17,17,17,0.9);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:2rem;
-      border-radius:30px;
-      backdrop-filter:blur(20px);
-    }
-
-    .profile-pic{
-      width:180px;
-      height:180px;
-      border-radius:50%;
-      object-fit:cover;
-      border:3px solid var(--neon);
-      box-shadow:0 0 30px rgba(57,255,20,0.5);
-      display:block;
-      margin:0 auto 2rem;
-    }
-
-    .status{
-      display:flex;
-      justify-content:space-between;
-      margin-bottom:1.5rem;
-      font-family:'Orbitron', sans-serif;
-      color:var(--neon);
-    }
-
-    .info-item{
-      display:flex;
-      justify-content:space-between;
-      padding:1rem 0;
-      border-bottom:1px solid rgba(255,255,255,0.05);
-      color:#d4d4d4;
-    }
-
-    /* SECTION */
-    section{
-      padding:5rem 8%;
-    }
-
-    .section-title{
-      margin-bottom:3rem;
-    }
-
-    .section-title small{
-      color:var(--neon);
-      letter-spacing:4px;
-      text-transform:uppercase;
-    }
-
-    .section-title h2{
-      font-size:3rem;
-      margin-top:0.5rem;
-      font-family:'Orbitron', sans-serif;
-    }
-
-    /* PROJECTS */
-    .projects{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:2rem;
-    }
-
-    .project-card{
-      position:relative;
-      background:rgba(17,17,17,0.8);
-      border:1px solid rgba(255,255,255,0.08);
-      padding:2rem;
-      border-radius:24px;
-      transition:0.35s;
-      text-decoration:none;
-      color:#fff;
-      overflow:hidden;
-    }
-
-    .project-card::before{
-      content:'';
-      position:absolute;
-      inset:0;
-      background:linear-gradient(135deg, rgba(57,255,20,0.08), rgba(168,85,247,0.08));
-      opacity:0;
-      transition:0.4s;
-    }
-
-    .project-card:hover::before{
-      opacity:1;
-    }
-
-    .project-card:hover{
-      transform:translateY(-8px);
-      border-color:rgba(57,255,20,0.4);
-      box-shadow:0 0 25px rgba(57,255,20,0.15);
-    }
-
-    .project-number{
-      width:55px;
-      height:55px;
-      border-radius:16px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:#000;
-      border:1px solid rgba(57,255,20,0.4);
-      color:var(--neon);
-      font-family:'Orbitron', sans-serif;
-      margin-bottom:1.5rem;
-      box-shadow:0 0 20px rgba(57,255,20,0.2);
-    }
-
-    .project-card h3{
-      margin-bottom:1rem;
-      font-size:1.5rem;
-    }
-
-    .project-card p{
-      color:#b3b3b3;
-      line-height:1.7;
-      margin-bottom:1.5rem;
-    }
-
-    .tech{
-      display:inline-block;
-      padding:6px 12px;
-      border-radius:999px;
-      font-size:0.75rem;
-      background:rgba(168,85,247,0.15);
-      border:1px solid rgba(168,85,247,0.3);
-      margin:5px 5px 0 0;
-    }
-
-    /* CONTACT */
-    footer{
-      text-align:center;
-      padding:5rem 8%;
-      border-top:1px solid rgba(255,255,255,0.08);
-    }
-
-    footer h2{
-      font-size:3rem;
-      margin-bottom:1rem;
-      font-family:'Orbitron', sans-serif;
-    }
-
-    footer p{
-      color:#b3b3b3;
-      margin-bottom:1rem;
-    }
-
-    footer a{
-      color:var(--neon);
-      text-decoration:none;
-    }
-
-    @media(max-width:768px){
-      .hero-text h1{
-        font-size:2.8rem;
-      }
-
-      .menu{
-        display:none;
-      }
-
-      .section-title h2{
-        font-size:2rem;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Romário Morais | Desenvolvedor Back-end</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#050505;--card:#111;--neon:#39ff14;--purple:#a855f7;--text:#fff;--gray:#b3b3b3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Inter,sans-serif}
+body::before{
+content:'';position:fixed;inset:0;
+background:radial-gradient(circle at top left,rgba(57,255,20,.15),transparent 30%),
+radial-gradient(circle at bottom right,rgba(168,85,247,.15),transparent 30%);
+z-index:-1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:20px 8%;position:sticky;top:0;background:rgba(0,0,0,.6);backdrop-filter:blur(10px)}
+.logo{font-family:Orbitron;color:var(--neon);font-weight:900}
+.menu a{color:#ddd;text-decoration:none;margin-left:20px}
+.hero{padding:80px 8%;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:center;min-height:90vh}
+.hero h1{font-size:4rem;font-family:Orbitron}
+.hero span{background:linear-gradient(90deg,var(--neon),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--gray);line-height:1.8;margin:20px 0}
+.btn{display:inline-block;padding:14px 24px;border-radius:12px;text-decoration:none;font-weight:700;margin-right:10px}
+.primary{background:var(--neon);color:#000}
+.secondary{border:1px solid var(--purple);color:#fff}
+.card{background:rgba(17,17,17,.9);padding:25px;border-radius:24px;border:1px solid rgba(255,255,255,.08)}
+.profile-pic{width:180px;height:180px;border-radius:50%;display:block;margin:auto;border:3px solid var(--neon)}
+.info{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+section{padding:70px 8%}
+h2{font-family:Orbitron;font-size:2.5rem;margin-bottom:25px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.project{background:rgba(17,17,17,.85);padding:25px;border-radius:20px;text-decoration:none;color:white;border:1px solid rgba(255,255,255,.08)}
+.project:hover{transform:translateY(-5px)}
+.tech{display:inline-block;padding:6px 10px;margin:4px;border-radius:999px;background:rgba(168,85,247,.15)}
+footer{text-align:center;padding:50px 8%;border-top:1px solid rgba(255,255,255,.08)}
+a{color:var(--neon)}
+@media(max-width:768px){.hero h1{font-size:2.5rem}}
+</style>
 </head>
-
 <body>
 
-  <nav>
-    <div class="logo">ROMÁRIO.dev</div>
+<nav>
+<div class="logo">ROMÁRIO.dev</div>
+<div class="menu">
+<a href="#sobre">Sobre</a>
+<a href="#skills">Skills</a>
+<a href="#projetos">Projetos</a>
+<a href="#contato">Contato</a>
+</div>
+</nav>
 
-    <div class="menu">
-      <a href="#home">Home</a>
-      <a href="#projects">Projetos</a>
-      <a href="#contact">Contato</a>
-    </div>
-  </nav>
+<section class="hero">
+<div>
+<small style="color:#39ff14">DESENVOLVEDOR BACK-END EM FORMAÇÃO</small>
+<h1>Construindo <span>APIs e Soluções Inteligentes</span></h1>
+<p>
+Graduando em Sistemas de Informação, com foco em Python, bancos de dados,
+automação de processos e desenvolvimento de aplicações Back-end.
+</p>
 
-  <section class="hero" id="home">
+<a class="btn primary" href="#projetos">Ver Projetos</a>
+<a class="btn secondary" href="https://www.linkedin.com/in/romariomorais30/" target="_blank">LinkedIn</a>
+</div>
 
-    <div class="hero-text">
-      <small>Desenvolvedor Front-End</small>
+<div class="card">
+<img class="profile-pic" src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_033.png">
+<div class="info"><span>Nome</span><strong>Romário Morais</strong></div>
+<div class="info"><span>Foco</span><strong>Back-end</strong></div>
+<div class="info"><span>Stack</span><strong>Python • SQL • APIs</strong></div>
+<div class="info"><span>Status</span><strong style="color:#39ff14">OPEN TO WORK</strong></div>
+</div>
+</section>
 
-      <h1>
-        Criando <span>experiências digitais</span>
-      </h1>
+<section id="sobre">
+<h2>Sobre Mim</h2>
+<div class="card">
+<p>
+Desenvolvedor Back-end em formação - Graduando em Sistemas de Informação.
+Possuo experiência com Python, JavaScript, SQL, Git e desenvolvimento de aplicações.
+Minha trajetória profissional em educação e gestão fortaleceu habilidades de comunicação,
+liderança e resolução de problemas.
+</p>
+</div>
+</section>
 
-      <p>
-        Bacharelando em Sistemas de Informação pela UNIFATECIE.
-        Desenvolvedor em transição para a área de tecnologia,
-        focado em aplicações web modernas, interativas e funcionais.
-      </p>
+<section id="skills">
+<h2>Stack Tecnológica</h2>
+<div class="grid">
+<div class="card"><h3>Back-end</h3><p>Python • APIs REST • JavaScript • Go</p></div>
+<div class="card"><h3>Banco de Dados</h3><p>SQL • PostgreSQL • MySQL • SQLite</p></div>
+<div class="card"><h3>Ferramentas</h3><p>Git • GitHub • Docker • Linux</p></div>
+<div class="card"><h3>Dados</h3><p>ETL • Pandas • Automação</p></div>
+</div>
+</section>
 
-      <div class="buttons">
-        <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+<section id="projetos">
+<h2>Projetos em Destaque</h2>
+<div class="grid">
 
-        <a href="https://linkedin.com/in/romariomorais30" target="_blank" class="btn btn-secondary">
-          LinkedIn
-        </a>
-      </div>
-    </div>
+<a class="project" href="https://github.com/romariomorais01/Desafio-Kanban-Fullstack" target="_blank">
+<h3>Kanban Fullstack</h3>
+<p>Sistema completo para gerenciamento de tarefas.</p>
+<span class="tech">React</span><span class="tech">Go</span><span class="tech">Gin</span>
+</a>
 
-    <div class="profile-card">
-      <div class="profile-glow"></div>
+<a class="project" href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank">
+<h3>Cadastro de Alunos</h3>
+<p>Cadastro e gerenciamento de alunos via terminal.</p>
+<span class="tech">Python</span>
+</a>
 
-      <div class="profile-content">
+<a class="project" href="https://github.com/romariomorais01/Organizador-de-tarefas-em-Python-1" target="_blank">
+<h3>Organizador de Tarefas</h3>
+<p>Gerenciador simples com persistência em arquivos.</p>
+<span class="tech">Python</span>
+</a>
 
-        <div class="status">
-          <span>STATUS</span>
-          <span>ONLINE</span>
-        </div>
+<a class="project" href="https://github.com/romariomorais01/chatbot-simples" target="_blank">
+<h3>Chatbot em Python</h3>
+<p>Assistente virtual para comandos básicos.</p>
+<span class="tech">Python</span>
+</a>
 
-       <img src="https://github.com/romariomorais01/Portf-lio-Rom-rio-Morais/raw/main/IMG_033.png" class="profile-pic">
+<a class="project" href="https://github.com/romariomorais01/Captura-de-Leads-simples" target="_blank">
+<h3>Captura de Leads</h3>
+<p>Landing page integrada ao WhatsApp.</p>
+<span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JavaScript</span>
+</a>
 
+<a class="project" href="https://github.com/romariomorais01/geradordesenha" target="_blank">
+<h3>Gerador de Senhas</h3>
+<p>Ferramenta para criação de senhas seguras.</p>
+<span class="tech">Python</span>
+</a>
 
-        <div class="info-item">
-          <span>Nome</span>
-          <strong>Romário Morais</strong>
-        </div>
+<a class="project" href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank">
+<h3>Projetos Web</h3>
+<p>Coleção de páginas responsivas e aplicações web.</p>
+<span class="tech">PHP</span><span class="tech">JavaScript</span>
+</a>
 
-        <div class="info-item">
-          <span>Foco</span>
-          <strong>Front-End</strong>
-        </div>
+</div>
+</section>
 
-        <div class="info-item">
-          <span>Stack</span>
-          <strong>HTML • CSS • JS</strong>
-        </div>
-
-        <div class="info-item">
-          <span>Modo</span>
-          <strong style="color: var(--neon);">BUILDING</strong>
-        </div>
-
-      </div>
-    </div>
-
-  </section>
-
-  <section id="projects">
-
-    <div class="section-title">
-      <small>Portfólio</small>
-      <h2>Projetos em destaque</h2>
-    </div>
-
-    <div class="projects">
-
-      <a class="project-card" href="https://github.com/romariomorais01/Captura-de-Leads-simples" target="_blank">
-        <div class="project-number">01</div>
-        <h3>Sistema de Captura de Leads</h3>
-        <p>Formulário integrado ao WhatsApp para envio automático de mensagens.</p>
-        <span class="tech">HTML</span>
-        <span class="tech">CSS</span>
-        <span class="tech">JavaScript</span>
-      </a>
-
-      <a class="project-card" href="https://github.com/romariomorais01/Desafio-Kanban-Fullstack" target="_blank">
-        <div class="project-number">02</div>
-        <h3>Kanban Fullstack</h3>
-        <p>Gerenciador de tarefas completo.</p>
-        <span class="tech">React</span>
-        <span class="tech">Go</span>
-      </a>
-
-      <a class="project-card" href="https://github.com/romariomorais01/Cadastro-de-alunos-em-Python" target="_blank">
-        <div class="project-number">03</div>
-        <h3>Cadastro de Alunos</h3>
-        <p>Cadastro e consulta via terminal.</p>
-        <span class="tech">Python</span>
-      </a>
-
-      <a class="project-card" href="https://github.com/romariomorais01/geradordesenha" target="_blank">
-        <div class="project-number">04</div>
-        <h3>Gerador de Senhas</h3>
-        <p>Geração de senhas seguras.</p>
-        <span class="tech">Python</span>
-      </a>
-
-      <a class="project-card" href="https://github.com/romariomorais01/chatbot-simples" target="_blank">
-        <div class="project-number">05</div>
-        <h3>Chatbot</h3>
-        <p>Respostas automáticas básicas.</p>
-        <span class="tech">Python</span>
-      </a>
-
-      <a class="project-card" href="https://github.com/romariomorais01/Projetos-de-Paginas" target="_blank">
-        <div class="project-number">06</div>
-        <h3>Projetos Web</h3>
-        <p>Páginas desenvolvidas com HTML, CSS, JavaScript e PHP.</p>
-        <span class="tech">HTML</span>
-        <span class="tech">CSS</span>
-        <span class="tech">JavaScript</span>
-        <span class="tech">PHP</span>
-      </a>
-
-    </div>
-  </section>
-
-  <footer id="contact">
-    <h2>Vamos construir algo incrível.</h2>
-
-    <p>
-      Disponível para freelas, projetos e oportunidades.
-    </p>
-
-    <pim
-      Email:
-      <a href="mailto:romariomorais5@gmail.com">
-        romariomorais5@gmail.com
-      </a>
-    </p>
-
-    <p>
-      <a href="https://linkedin.com/in/romariomorais30" target="_blank">
-        LinkedIn
-      </a>
-    </p>
-  </footer>
+<footer id="contato">
+<h2>Contato</h2>
+<p>Email: <a href="mailto:romariomorais5@gmail.com">romariomorais5@gmail.com</a></p>
+<p>GitHub: <a href="https://github.com/romariomorais01" target="_blank">github.com/romariomorais01</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/romariomorais30/" target="_blank">linkedin.com/in/romariomorais30</a></p>
+</footer>
 
 </body>
 </html>
